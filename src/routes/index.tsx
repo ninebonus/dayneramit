@@ -82,11 +82,11 @@ function Landing() {
             ด้วยทีมงานมืออาชีพ รับประกันคุณภาพ ราคายุติธรรม
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+66000000000" className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-medium px-7 py-3.5 shadow-elevated hover:scale-[1.02] active:scale-[0.98] transition">
+            <a href="tel:0924367468" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient text-brand-foreground font-semibold px-7 py-3.5 shadow-glow hover:scale-[1.02] active:scale-[0.98] transition">
               <Phone className="h-4 w-4" /> โทรหาช่างทันที
             </a>
-            <a href="#services" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card font-medium px-7 py-3.5 hover:bg-accent transition">
-              ดูบริการทั้งหมด <ArrowRight className="h-4 w-4" />
+            <a href="https://line.me/R/ti/p/~xevilteam" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card font-medium px-7 py-3.5 hover:bg-accent transition">
+              <MessageCircle className="h-4 w-4" /> แชท LINE
             </a>
           </div>
           <div className="mt-14 grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto">
@@ -181,10 +181,10 @@ function Landing() {
                 ปรึกษาฟรี ประเมินราคาก่อนงาน ทีมช่างมืออาชีพพร้อมเดินทางถึงบ้านคุณ
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="tel:+66000000000" className="inline-flex items-center justify-center gap-2 rounded-full bg-background text-foreground font-medium px-7 py-3.5 hover:opacity-90 transition">
-                  <Phone className="h-4 w-4" /> โทร 0XX-XXX-XXXX
+                <a href="tel:0924367468" className="inline-flex items-center justify-center gap-2 rounded-full bg-background text-foreground font-semibold px-7 py-3.5 hover:opacity-90 transition">
+                  <Phone className="h-4 w-4" /> โทรหาช่างทันที
                 </a>
-                <a href="https://line.me/" className="inline-flex items-center justify-center gap-2 rounded-full border border-primary-foreground/20 font-medium px-7 py-3.5 hover:bg-primary-foreground/10 transition">
+                <a href="https://line.me/R/ti/p/~xevilteam" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-primary-foreground/30 font-medium px-7 py-3.5 hover:bg-primary-foreground/10 transition">
                   <MessageCircle className="h-4 w-4" /> แชท LINE
                 </a>
               </div>
