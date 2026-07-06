@@ -56,7 +56,7 @@ function Landing() {
             <a href="#why" className="hover:text-foreground transition">ทำไมเลือกเรา</a>
             <a href="#contact" className="hover:text-foreground transition">ติดต่อ</a>
           </nav>
-          <a href="tel:+66000000000" className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground text-sm font-medium px-4 py-2 hover:opacity-90 transition">
+          <a href="tel:0924367468" className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient text-brand-foreground text-sm font-semibold px-4 py-2 shadow-led hover:brightness-110 transition">
             <Phone className="h-3.5 w-3.5" /> โทรเลย
           </a>
         </div>
