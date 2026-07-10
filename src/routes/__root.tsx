@@ -95,6 +95,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "Day Neramit ทีมช่างมืออาชีพครบวงจร บริการติดตั้ง ย้าย ซ่อม ล้างแอร์ กล้องวงจรปิด ไฟฟ้า ประปา รีโนเวท ทาสี ปูกระเบื้อง รับประกันงานคุณภาพ ราคายุติธรรม" },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/fgNUcjYy1Ud9gmLhXpLBhMTgTT92/social-images/social-1783349576733-2214.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/fgNUcjYy1Ud9gmLhXpLBhMTgTT92/social-images/social-1783349576733-2214.webp" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "apple-mobile-web-app-title", content: "Day Neramit" },
+      { name: "format-detection", content: "telephone=yes" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
