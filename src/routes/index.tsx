@@ -284,8 +284,50 @@ function Landing() {
         </div>
       </section>
 
+      {/* GALLERY — ผลงานช่างจริง */}
+      <section id="gallery" className="py-16 md:py-24 relative">
+        <div className="max-w-6xl mx-auto px-5">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <div className="text-sm font-medium text-brand mb-3">ผลงานทีมช่าง</div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              ช่างไทย <span className="text-brand-gradient">มืออาชีพ</span> ถึงบ้าน
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              ภาพงานจริงจากทีมช่างในพื้นที่นนทบุรี บางใหญ่ บางบัวทอง
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {[
+              { src: imgAir, alt: "ช่างไทยติดตั้งแอร์ผนังในบ้านย่านนนทบุรี", cap: "ติดตั้ง / ล้างแอร์" },
+              { src: imgCctv, alt: "ช่างติดตั้งกล้องวงจรปิด CCTV บ้านในบางใหญ่", cap: "กล้องวงจรปิด CCTV" },
+              { src: imgElectric, alt: "ช่างไฟฟ้าตรวจเช็คตู้ควบคุมไฟบ้าน", cap: "ระบบไฟฟ้า" },
+              { src: imgPlumbing, alt: "ช่างซ่อมปั๊มน้ำและงานประปาที่บางบัวทอง", cap: "ประปา / ปั๊มน้ำ" },
+            ].map((g) => (
+              <figure
+                key={g.cap}
+                className="group relative rounded-2xl overflow-hidden border border-border shadow-soft hover:shadow-glow hover:border-brand/50 transition"
+              >
+                <img
+                  src={g.src}
+                  alt={g.alt}
+                  width={1200}
+                  height={912}
+                  loading="lazy"
+                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                <figcaption className="absolute bottom-0 inset-x-0 p-3 md:p-4 text-xs md:text-sm font-semibold text-foreground">
+                  {g.cap}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section id="services" className="py-20 md:py-32 relative">
+
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="text-sm font-medium text-brand mb-3">บริการของเรา</div>
