@@ -172,3 +172,15 @@
   background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.35), transparent);
   animation: neon-sweep 2.8s ease-in-out infinite;
 }
+
+/* Respect user's motion preferences — disable neon/sweep/pulse effects */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .btn-neon-sweep, .btn-neon-sweep-inner { display: none !important; }
+}
+

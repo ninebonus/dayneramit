@@ -6,6 +6,10 @@ import {
   Star, ArrowRight, CheckCircle2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-neon.jpg";
+import imgAir from "@/assets/service-air.jpg";
+import imgCctv from "@/assets/service-cctv.jpg";
+import imgElectric from "@/assets/service-electric.jpg";
+import imgPlumbing from "@/assets/service-plumbing.jpg";
 
 const PHONE = "0924367468";
 const LINE_URL = "https://line.me/R/ti/p/~xevilteam";
@@ -50,6 +54,45 @@ const jsonLd = {
   ].map((s) => ({ "@type": "Offer", name: s })),
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Day Neramit ให้บริการพื้นที่ไหนบ้าง?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ให้บริการทั่วจังหวัดนนทบุรี ครอบคลุมบางใหญ่ บางบัวทอง ปากเกร็ด บางกรวย ไทรน้อย เมืองนนทบุรี รัตนาธิเบศร์ งามวงศ์วาน แคราย และพื้นที่ใกล้เคียง",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "ล้างแอร์บ้านราคาเท่าไหร่?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ราคาล้างแอร์เริ่มต้นตามขนาด BTU และประเภทแอร์ แจ้งราคาชัดเจนก่อนเริ่มงาน ไม่มีบวกเพิ่ม โทรสอบถามได้ที่ 092-436-7468",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "รับติดตั้งกล้องวงจรปิด (CCTV) ไหม?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "รับติดตั้งกล้องวงจรปิดทุกยี่ห้อ ทั้งระบบ IP และ HD พร้อมเดินสาย ตั้งค่าดูผ่านมือถือ รับประกันงานติดตั้ง",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "เปิดให้บริการวันไหนบ้าง?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "เปิดบริการทุกวัน ตั้งแต่ 08:00 – 20:00 น. โทร 092-436-7468 หรือแชท LINE ได้ตลอด",
+      },
+    },
+  ],
+};
+
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
@@ -76,10 +119,8 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: SITE_DESC },
     ],
     scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(jsonLd),
-      },
+      { type: "application/ld+json", children: JSON.stringify(jsonLd) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd) },
     ],
   }),
 });
@@ -243,8 +284,50 @@ function Landing() {
         </div>
       </section>
 
+      {/* GALLERY — ผลงานช่างจริง */}
+      <section id="gallery" className="py-16 md:py-24 relative">
+        <div className="max-w-6xl mx-auto px-5">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <div className="text-sm font-medium text-brand mb-3">ผลงานทีมช่าง</div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              ช่างไทย <span className="text-brand-gradient">มืออาชีพ</span> ถึงบ้าน
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              ภาพงานจริงจากทีมช่างในพื้นที่นนทบุรี บางใหญ่ บางบัวทอง
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {[
+              { src: imgAir, alt: "ช่างไทยติดตั้งแอร์ผนังในบ้านย่านนนทบุรี", cap: "ติดตั้ง / ล้างแอร์" },
+              { src: imgCctv, alt: "ช่างติดตั้งกล้องวงจรปิด CCTV บ้านในบางใหญ่", cap: "กล้องวงจรปิด CCTV" },
+              { src: imgElectric, alt: "ช่างไฟฟ้าตรวจเช็คตู้ควบคุมไฟบ้าน", cap: "ระบบไฟฟ้า" },
+              { src: imgPlumbing, alt: "ช่างซ่อมปั๊มน้ำและงานประปาที่บางบัวทอง", cap: "ประปา / ปั๊มน้ำ" },
+            ].map((g) => (
+              <figure
+                key={g.cap}
+                className="group relative rounded-2xl overflow-hidden border border-border shadow-soft hover:shadow-glow hover:border-brand/50 transition"
+              >
+                <img
+                  src={g.src}
+                  alt={g.alt}
+                  width={1200}
+                  height={912}
+                  loading="lazy"
+                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                <figcaption className="absolute bottom-0 inset-x-0 p-3 md:p-4 text-xs md:text-sm font-semibold text-foreground">
+                  {g.cap}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section id="services" className="py-20 md:py-32 relative">
+
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="text-sm font-medium text-brand mb-3">บริการของเรา</div>
