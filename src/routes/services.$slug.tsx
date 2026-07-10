@@ -5,7 +5,7 @@ import {
   Grid3x3, HardHat, Phone, MessageCircle, MapPin, Clock, CheckCircle2,
   ArrowLeft, ArrowRight,
 } from "lucide-react";
-import { services, serviceBySlug, type ServiceIconKey } from "@/data/services";
+import { services, serviceBySlug, type Service, type ServiceIconKey } from "@/data/services";
 
 const PHONE = "0924367468";
 const LINE_URL = "https://line.me/R/ti/p/~xevilteam";
@@ -140,7 +140,7 @@ function ServiceNotFound() {
 }
 
 function ServicePage() {
-  const s = Route.useLoaderData();
+  const s = Route.useLoaderData() as Service;
   const Icon = iconMap[s.icon];
   const others = services.filter((x) => x.slug !== s.slug).slice(0, 6);
 
@@ -237,7 +237,7 @@ function ServicePage() {
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
-            {s.highlights.map((h) => (
+            {s.highlights.map((h: string) => (
               <div key={h} className="flex gap-3 rounded-2xl border border-border bg-card p-5 shadow-soft hover:border-brand/50 hover:shadow-glow transition">
                 <CheckCircle2 className="h-5 w-5 text-brand shrink-0 mt-0.5" />
                 <p className="text-sm md:text-base leading-relaxed">{h}</p>
@@ -253,7 +253,7 @@ function ServicePage() {
           <div className="max-w-4xl mx-auto px-5">
             <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-8">คำถามที่พบบ่อย</h2>
             <div className="space-y-3">
-              {s.faq.map((f) => (
+              {s.faq.map((f: { q: string; a: string }) => (
                 <details key={f.q} className="group rounded-2xl border border-border bg-card p-5 open:shadow-glow open:border-brand/50 transition">
                   <summary className="cursor-pointer font-semibold text-base md:text-lg flex items-center justify-between gap-4">
                     {f.q}
