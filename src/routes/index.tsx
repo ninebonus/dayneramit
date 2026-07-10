@@ -54,6 +54,45 @@ const jsonLd = {
   ].map((s) => ({ "@type": "Offer", name: s })),
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Day Neramit ให้บริการพื้นที่ไหนบ้าง?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ให้บริการทั่วจังหวัดนนทบุรี ครอบคลุมบางใหญ่ บางบัวทอง ปากเกร็ด บางกรวย ไทรน้อย เมืองนนทบุรี รัตนาธิเบศร์ งามวงศ์วาน แคราย และพื้นที่ใกล้เคียง",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "ล้างแอร์บ้านราคาเท่าไหร่?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ราคาล้างแอร์เริ่มต้นตามขนาด BTU และประเภทแอร์ แจ้งราคาชัดเจนก่อนเริ่มงาน ไม่มีบวกเพิ่ม โทรสอบถามได้ที่ 092-436-7468",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "รับติดตั้งกล้องวงจรปิด (CCTV) ไหม?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "รับติดตั้งกล้องวงจรปิดทุกยี่ห้อ ทั้งระบบ IP และ HD พร้อมเดินสาย ตั้งค่าดูผ่านมือถือ รับประกันงานติดตั้ง",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "เปิดให้บริการวันไหนบ้าง?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "เปิดบริการทุกวัน ตั้งแต่ 08:00 – 20:00 น. โทร 092-436-7468 หรือแชท LINE ได้ตลอด",
+      },
+    },
+  ],
+};
+
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
