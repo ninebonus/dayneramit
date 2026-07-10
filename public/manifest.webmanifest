@@ -1,0 +1,18 @@
+{
+  "name": "Day Neramit — ช่างมืออาชีพ นนทบุรี บางใหญ่ บางบัวทอง",
+  "short_name": "Day Neramit",
+  "description": "บริการช่างครบวงจร ติดตั้ง/ซ่อม/ล้างแอร์ CCTV ไฟฟ้า ประปา รีโนเวท พื้นที่นนทบุรี บางใหญ่ บางบัวทอง",
+  "lang": "th",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "categories": ["business", "utilities", "productivity"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
