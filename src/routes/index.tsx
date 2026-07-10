@@ -119,10 +119,8 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: SITE_DESC },
     ],
     scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(jsonLd),
-      },
+      { type: "application/ld+json", children: JSON.stringify(jsonLd) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd) },
     ],
   }),
 });
