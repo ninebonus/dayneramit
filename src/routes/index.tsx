@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Snowflake, Wrench, Sparkles, Move, Camera, Zap, Droplet, Plug,
   Waves, Home, WashingMachine, Laptop, Monitor, Hammer, Paintbrush,
@@ -126,23 +126,23 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Snowflake, title: "ติดตั้งแอร์", desc: "ติดตั้งแอร์บ้าน สำนักงาน ทุกยี่ห้อ นนทบุรี บางใหญ่" },
-  { icon: Move, title: "ย้ายแอร์", desc: "ย้ายแอร์เก่า เดินท่อใหม่ ครบวงจร" },
-  { icon: Wrench, title: "ซ่อมแอร์", desc: "แอร์ไม่เย็น น้ำหยด เสียงดัง แก้ได้" },
-  { icon: Sparkles, title: "ล้างแอร์", desc: "ล้างใหญ่ ฆ่าเชื้อ ประหยัดไฟ" },
-  { icon: Camera, title: "กล้องวงจรปิด CCTV", desc: "ติดตั้ง CCTV IP / HD ครบชุด" },
-  { icon: Zap, title: "ระบบไฟฟ้า", desc: "เดินสายไฟ ติดโคม ตรวจระบบ" },
-  { icon: Droplet, title: "งานประปา", desc: "ท่อรั่ว ท่อตัน เดินท่อใหม่" },
-  { icon: Plug, title: "ซ่อมเครื่องใช้ไฟฟ้า", desc: "ตู้เย็น ไมโครเวฟ พัดลม" },
-  { icon: Waves, title: "ปั๊มน้ำ", desc: "ติดตั้ง ซ่อมปั๊มน้ำอัตโนมัติ" },
-  { icon: Home, title: "หลังคารั่วซึม", desc: "ตรวจหาจุดรั่ว ซ่อมกันซึม" },
-  { icon: WashingMachine, title: "เครื่องซักผ้า", desc: "ซ่อมทุกอาการ ทุกยี่ห้อ ถึงบ้าน" },
-  { icon: Monitor, title: "คอมพิวเตอร์", desc: "ลง Windows แก้ช้า ไวรัส อัพเกรด" },
-  { icon: Laptop, title: "โน้ตบุ๊ก", desc: "เปลี่ยนจอ คีย์บอร์ด แบตเตอรี่" },
-  { icon: HardHat, title: "รีโนเวท", desc: "ต่อเติม รีโนเวทบ้าน ออฟฟิศ" },
-  { icon: Paintbrush, title: "ทาสี", desc: "ทาสีบ้าน ภายใน ภายนอก งานเนี้ยบ" },
-  { icon: Grid3x3, title: "ปูกระเบื้อง", desc: "ปูพื้น ปูผนัง งานประณีต" },
-  { icon: Hammer, title: "งานช่างอื่น ๆ", desc: "งานช่างทั่วไป ปรึกษาฟรี" },
+  { slug: "ติดตั้งแอร์", icon: Snowflake, title: "ติดตั้งแอร์", desc: "ติดตั้งแอร์บ้าน สำนักงาน ทุกยี่ห้อ นนทบุรี บางใหญ่" },
+  { slug: "ย้ายแอร์", icon: Move, title: "ย้ายแอร์", desc: "ย้ายแอร์เก่า เดินท่อใหม่ ครบวงจร" },
+  { slug: "ซ่อมแอร์", icon: Wrench, title: "ซ่อมแอร์", desc: "แอร์ไม่เย็น น้ำหยด เสียงดัง แก้ได้" },
+  { slug: "ล้างแอร์", icon: Sparkles, title: "ล้างแอร์", desc: "ล้างใหญ่ ฆ่าเชื้อ ประหยัดไฟ" },
+  { slug: "กล้องวงจรปิด", icon: Camera, title: "กล้องวงจรปิด CCTV", desc: "ติดตั้ง CCTV IP / HD ครบชุด" },
+  { slug: "ระบบไฟฟ้า", icon: Zap, title: "ระบบไฟฟ้า", desc: "เดินสายไฟ ติดโคม ตรวจระบบ" },
+  { slug: "งานประปา", icon: Droplet, title: "งานประปา", desc: "ท่อรั่ว ท่อตัน เดินท่อใหม่" },
+  { slug: "ซ่อมเครื่องใช้ไฟฟ้า", icon: Plug, title: "ซ่อมเครื่องใช้ไฟฟ้า", desc: "ตู้เย็น ไมโครเวฟ พัดลม" },
+  { slug: "ปั๊มน้ำ", icon: Waves, title: "ปั๊มน้ำ", desc: "ติดตั้ง ซ่อมปั๊มน้ำอัตโนมัติ" },
+  { slug: "หลังคารั่วซึม", icon: Home, title: "หลังคารั่วซึม", desc: "ตรวจหาจุดรั่ว ซ่อมกันซึม" },
+  { slug: "เครื่องซักผ้า", icon: WashingMachine, title: "เครื่องซักผ้า", desc: "ซ่อมทุกอาการ ทุกยี่ห้อ ถึงบ้าน" },
+  { slug: "คอมพิวเตอร์", icon: Monitor, title: "คอมพิวเตอร์", desc: "ลง Windows แก้ช้า ไวรัส อัพเกรด" },
+  { slug: "โน้ตบุ๊ก", icon: Laptop, title: "โน้ตบุ๊ก", desc: "เปลี่ยนจอ คีย์บอร์ด แบตเตอรี่" },
+  { slug: "รีโนเวท", icon: HardHat, title: "รีโนเวท", desc: "ต่อเติม รีโนเวทบ้าน ออฟฟิศ" },
+  { slug: "ทาสี", icon: Paintbrush, title: "ทาสี", desc: "ทาสีบ้าน ภายใน ภายนอก งานเนี้ยบ" },
+  { slug: "ปูกระเบื้อง", icon: Grid3x3, title: "ปูกระเบื้อง", desc: "ปูพื้น ปูผนัง งานประณีต" },
+  { slug: "งานช่างอื่นๆ", icon: Hammer, title: "งานช่างอื่น ๆ", desc: "งานช่างทั่วไป ปรึกษาฟรี" },
 ];
 
 const features = [
@@ -336,8 +336,10 @@ function Landing() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {services.map((s) => (
-              <article
+              <Link
                 key={s.title}
+                to="/services/$slug"
+                params={{ slug: s.slug }}
                 className="group relative rounded-2xl border border-border bg-card p-5 md:p-6 shadow-soft hover:border-brand/50 hover:shadow-glow hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div className="h-11 w-11 rounded-xl bg-brand-gradient text-brand-foreground flex items-center justify-center mb-4 shadow-led group-hover:scale-110 transition">
@@ -345,7 +347,10 @@ function Landing() {
                 </div>
                 <h3 className="font-semibold text-[15px] leading-tight">{s.title}</h3>
                 <p className="mt-1.5 text-xs md:text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </article>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-brand opacity-0 group-hover:opacity-100 transition">
+                  ดูรายละเอียด <ArrowRight className="h-3 w-3" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>
