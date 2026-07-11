@@ -486,10 +486,10 @@ function Landing() {
                 ปรึกษาฟรี ประเมินราคาก่อนงาน ทีมช่างมืออาชีพพร้อมเดินทางถึงบ้านคุณ
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <NeonButton href={`tel:${PHONE}`} variant="primary">
+                <NeonButton href={`tel:${PHONE}`} variant="primary" track="phone" location="cta">
                   <Phone className="h-4 w-4" /> โทรหาช่างทันที
                 </NeonButton>
-                <NeonButton href={LINE_URL} variant="ghost" external>
+                <NeonButton href={LINE_URL} variant="ghost" external track="line" location="cta">
                   <MessageCircle className="h-4 w-4" /> แชท LINE
                 </NeonButton>
               </div>
