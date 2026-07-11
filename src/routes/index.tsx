@@ -5,11 +5,11 @@ import {
   Grid3x3, HardHat, Phone, MessageCircle, MapPin, Clock, ShieldCheck,
   Star, ArrowRight, CheckCircle2,
 } from "lucide-react";
-import heroImg from "@/assets/hero-neon.jpg";
-import imgAir from "@/assets/service-air.jpg";
-import imgCctv from "@/assets/service-cctv.jpg";
-import imgElectric from "@/assets/service-electric.jpg";
-import imgPlumbing from "@/assets/service-plumbing.jpg";
+import heroImg from "@/assets/hero-neon.webp";
+import imgAir from "@/assets/service-air.webp";
+import imgCctv from "@/assets/service-cctv.webp";
+import imgElectric from "@/assets/service-electric.webp";
+import imgPlumbing from "@/assets/service-plumbing.webp";
 
 const PHONE = "0924367468";
 const LINE_URL = "https://line.me/R/ti/p/~xevilteam";
@@ -41,6 +41,12 @@ const jsonLd = {
     addressCountry: "TH",
   },
   geo: { "@type": "GeoCoordinates", latitude: 13.859, longitude: 100.5215 },
+  hasMap: "https://www.google.com/maps/place/Nonthaburi",
+  serviceArea: {
+    "@type": "GeoCircle",
+    geoMidpoint: { "@type": "GeoCoordinates", latitude: 13.859, longitude: 100.5215 },
+    geoRadius: 25000,
+  },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
@@ -159,16 +165,43 @@ const areas = [
   "บางรักน้อย", "บางรักใหญ่", "เสาธงหิน", "พิมลราช", "โสนลอย",
 ];
 
+// Event tracking — fires to gtag, dataLayer (GTM), and fbq if present. Safe no-op otherwise.
+type TrackChannel = "phone" | "line";
+function trackContact(channel: TrackChannel, location: string) {
+  if (typeof window === "undefined") return;
+  const payload = {
+    event_category: "contact",
+    event_label: channel,
+    contact_channel: channel,
+    contact_location: location,
+    value: 1,
+  };
+  try {
+    const w = window as unknown as {
+      gtag?: (...a: unknown[]) => void;
+      dataLayer?: unknown[];
+      fbq?: (...a: unknown[]) => void;
+    };
+    w.gtag?.("event", `contact_${channel}`, payload);
+    (w.dataLayer ||= []).push({ event: `contact_${channel}`, ...payload });
+    w.fbq?.("track", "Contact", { channel, location });
+  } catch {
+    /* no-op */
+  }
+}
+
 function NeonButton({
-  href, variant = "primary", children, external = false,
+  href, variant = "primary", children, external = false, track, location,
 }: {
   href: string;
   variant?: "primary" | "ghost";
   children: React.ReactNode;
   external?: boolean;
+  track?: TrackChannel;
+  location?: string;
 }) {
   const base =
-    "relative inline-flex items-center justify-center gap-2 rounded-full font-semibold px-7 py-3.5 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] overflow-hidden isolate";
+    "relative inline-flex items-center justify-center gap-2 rounded-full font-semibold px-7 py-3.5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden isolate";
   const styles =
     variant === "primary"
       ? "bg-brand-gradient text-brand-foreground btn-neon"
@@ -177,6 +210,9 @@ function NeonButton({
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      onClick={() => track && trackContact(track, location ?? "unknown")}
+      data-track={track}
+      data-track-location={location}
       className={`${base} ${styles}`}
     >
       <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
@@ -215,6 +251,9 @@ function Landing() {
           </nav>
           <a
             href={`tel:${PHONE}`}
+            onClick={() => trackContact("phone", "header")}
+            data-track="phone"
+            data-track-location="header"
             className="relative inline-flex items-center gap-1.5 rounded-full bg-brand-gradient text-brand-foreground text-sm font-semibold px-4 py-2 btn-neon overflow-hidden isolate"
           >
             <span className="relative z-10 inline-flex items-center gap-1.5">
@@ -246,10 +285,10 @@ function Landing() {
               ทีมงานมืออาชีพในพื้นที่ <strong className="text-foreground">นนทบุรี บางใหญ่ บางบัวทอง</strong> รับประกันคุณภาพ
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-              <NeonButton href={`tel:${PHONE}`} variant="primary">
+              <NeonButton href={`tel:${PHONE}`} variant="primary" track="phone" location="hero">
                 <Phone className="h-4 w-4" /> โทรหาช่างทันที
               </NeonButton>
-              <NeonButton href={LINE_URL} variant="ghost" external>
+              <NeonButton href={LINE_URL} variant="ghost" external track="line" location="hero">
                 <MessageCircle className="h-4 w-4" /> แชท LINE
               </NeonButton>
             </div>
@@ -447,10 +486,10 @@ function Landing() {
                 ปรึกษาฟรี ประเมินราคาก่อนงาน ทีมช่างมืออาชีพพร้อมเดินทางถึงบ้านคุณ
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <NeonButton href={`tel:${PHONE}`} variant="primary">
+                <NeonButton href={`tel:${PHONE}`} variant="primary" track="phone" location="cta">
                   <Phone className="h-4 w-4" /> โทรหาช่างทันที
                 </NeonButton>
-                <NeonButton href={LINE_URL} variant="ghost" external>
+                <NeonButton href={LINE_URL} variant="ghost" external track="line" location="cta">
                   <MessageCircle className="h-4 w-4" /> แชท LINE
                 </NeonButton>
               </div>
@@ -486,6 +525,9 @@ function Landing() {
           href={LINE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackContact("line", "float")}
+          data-track="line"
+          data-track-location="float"
           aria-label="แชท LINE"
           className="h-12 w-12 rounded-full bg-card border border-brand/50 text-brand flex items-center justify-center shadow-led"
         >
@@ -493,6 +535,9 @@ function Landing() {
         </a>
         <a
           href={`tel:${PHONE}`}
+          onClick={() => trackContact("phone", "float")}
+          data-track="phone"
+          data-track-location="float"
           aria-label="โทรหาช่าง"
           className="relative h-12 w-12 rounded-full bg-brand-gradient text-brand-foreground flex items-center justify-center btn-neon overflow-hidden isolate"
         >
@@ -511,8 +556,8 @@ function Logo({ className = "" }: { className?: string }) {
     <svg viewBox="0 0 40 40" className={className} aria-label="Day Neramit logo" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="dn-g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.82 0.18 200)" />
-          <stop offset="100%" stopColor="oklch(0.85 0.24 155)" />
+          <stop offset="0%" stopColor="oklch(0.62 0.22 295)" />
+          <stop offset="100%" stopColor="oklch(0.75 0.22 305)" />
         </linearGradient>
       </defs>
       <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#dn-g)" />
