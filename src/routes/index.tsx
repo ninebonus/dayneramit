@@ -556,8 +556,8 @@ function Logo({ className = "" }: { className?: string }) {
     <svg viewBox="0 0 40 40" className={className} aria-label="Day Neramit logo" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="dn-g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.82 0.18 200)" />
-          <stop offset="100%" stopColor="oklch(0.85 0.24 155)" />
+          <stop offset="0%" stopColor="oklch(0.62 0.22 295)" />
+          <stop offset="100%" stopColor="oklch(0.75 0.22 305)" />
         </linearGradient>
       </defs>
       <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#dn-g)" />
