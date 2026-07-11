@@ -251,6 +251,9 @@ function Landing() {
           </nav>
           <a
             href={`tel:${PHONE}`}
+            onClick={() => trackContact("phone", "header")}
+            data-track="phone"
+            data-track-location="header"
             className="relative inline-flex items-center gap-1.5 rounded-full bg-brand-gradient text-brand-foreground text-sm font-semibold px-4 py-2 btn-neon overflow-hidden isolate"
           >
             <span className="relative z-10 inline-flex items-center gap-1.5">
