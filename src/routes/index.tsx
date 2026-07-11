@@ -165,16 +165,43 @@ const areas = [
   "บางรักน้อย", "บางรักใหญ่", "เสาธงหิน", "พิมลราช", "โสนลอย",
 ];
 
+// Event tracking — fires to gtag, dataLayer (GTM), and fbq if present. Safe no-op otherwise.
+type TrackChannel = "phone" | "line";
+function trackContact(channel: TrackChannel, location: string) {
+  if (typeof window === "undefined") return;
+  const payload = {
+    event_category: "contact",
+    event_label: channel,
+    contact_channel: channel,
+    contact_location: location,
+    value: 1,
+  };
+  try {
+    const w = window as unknown as {
+      gtag?: (...a: unknown[]) => void;
+      dataLayer?: unknown[];
+      fbq?: (...a: unknown[]) => void;
+    };
+    w.gtag?.("event", `contact_${channel}`, payload);
+    (w.dataLayer ||= []).push({ event: `contact_${channel}`, ...payload });
+    w.fbq?.("track", "Contact", { channel, location });
+  } catch {
+    /* no-op */
+  }
+}
+
 function NeonButton({
-  href, variant = "primary", children, external = false,
+  href, variant = "primary", children, external = false, track, location,
 }: {
   href: string;
   variant?: "primary" | "ghost";
   children: React.ReactNode;
   external?: boolean;
+  track?: TrackChannel;
+  location?: string;
 }) {
   const base =
-    "relative inline-flex items-center justify-center gap-2 rounded-full font-semibold px-7 py-3.5 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] overflow-hidden isolate";
+    "relative inline-flex items-center justify-center gap-2 rounded-full font-semibold px-7 py-3.5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden isolate";
   const styles =
     variant === "primary"
       ? "bg-brand-gradient text-brand-foreground btn-neon"
@@ -183,6 +210,9 @@ function NeonButton({
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      onClick={() => track && trackContact(track, location ?? "unknown")}
+      data-track={track}
+      data-track-location={location}
       className={`${base} ${styles}`}
     >
       <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
