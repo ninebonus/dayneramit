@@ -13,6 +13,7 @@ import imgPlumbing from "@/assets/service-plumbing.jpg";
 
 const PHONE = "0924367468";
 const LINE_URL = "https://line.me/R/ti/p/~xevilteam";
+const SITE = "https://dayneramit.lovable.app";
 const SITE_TITLE = "Day Neramit ช่างนนทบุรี บางใหญ่ บางบัวทอง — ติดตั้ง/ซ่อม/ล้างแอร์ CCTV ไฟฟ้า ประปา";
 const SITE_DESC =
   "Day Neramit ช่างมืออาชีพ พื้นที่นนทบุรี บางใหญ่ บางบัวทอง บริการติดตั้งแอร์ ย้ายแอร์ ซ่อมแอร์ ล้างแอร์ กล้องวงจรปิด CCTV ระบบไฟฟ้า งานประปา ปั๊มน้ำ หลังคารั่ว รีโนเวท ทาสี ปูกระเบื้อง โทรได้ตลอด";
@@ -20,12 +21,12 @@ const SITE_DESC =
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://dayneramit.com/#business",
+  "@id": `${SITE}/#business`,
   name: "Day Neramit ช่างครบวงจร นนทบุรี",
   description: SITE_DESC,
   telephone: "+66924367468",
   priceRange: "฿฿",
-  image: "https://dayneramit.com/og.jpg",
+  image: `${SITE}/og.jpg`,
   areaServed: [
     { "@type": "City", name: "นนทบุรี" },
     { "@type": "City", name: "บางใหญ่" },
@@ -96,7 +97,7 @@ const faqJsonLd = {
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
-    links: [{ rel: "canonical", href: "https://dayneramit.com/" }],
+    links: [{ rel: "canonical", href: `${SITE}/` }],
     meta: [
       { title: SITE_TITLE },
       { name: "description", content: SITE_DESC },
@@ -113,7 +114,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: SITE_DESC },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "th_TH" },
-      { property: "og:url", content: "https://dayneramit.com/" },
+      { property: "og:url", content: `${SITE}/` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: SITE_TITLE },
       { name: "twitter:description", content: SITE_DESC },

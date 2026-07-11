@@ -117,13 +117,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "@id": "https://dayneramit.com/#business",
+          "@type": "Organization",
+          "@id": "https://dayneramit.lovable.app/#organization",
           name: "Day Neramit",
           description: "บริการช่างมืออาชีพครบวงจร ติดตั้ง ซ่อม ล้างแอร์ CCTV ไฟฟ้า ประปา รีโนเวท",
-          image: "https://dayneramit.com/og.jpg",
-          telephone: "+66-XX-XXX-XXXX",
-          priceRange: "฿฿",
+          url: "https://dayneramit.lovable.app/",
+          logo: "https://dayneramit.lovable.app/icon-512.png",
+          telephone: "+66924367468",
           areaServed: { "@type": "Country", name: "Thailand" },
           address: { "@type": "PostalAddress", addressCountry: "TH" },
           openingHoursSpecification: {
