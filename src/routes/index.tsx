@@ -41,6 +41,12 @@ const jsonLd = {
     addressCountry: "TH",
   },
   geo: { "@type": "GeoCoordinates", latitude: 13.859, longitude: 100.5215 },
+  hasMap: "https://www.google.com/maps/place/Nonthaburi",
+  serviceArea: {
+    "@type": "GeoCircle",
+    geoMidpoint: { "@type": "GeoCoordinates", latitude: 13.859, longitude: 100.5215 },
+    geoRadius: 25000,
+  },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
