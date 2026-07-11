@@ -5,11 +5,11 @@ import {
   Grid3x3, HardHat, Phone, MessageCircle, MapPin, Clock, ShieldCheck,
   Star, ArrowRight, CheckCircle2,
 } from "lucide-react";
-import heroImg from "@/assets/hero-neon.jpg";
-import imgAir from "@/assets/service-air.jpg";
-import imgCctv from "@/assets/service-cctv.jpg";
-import imgElectric from "@/assets/service-electric.jpg";
-import imgPlumbing from "@/assets/service-plumbing.jpg";
+import heroImg from "@/assets/hero-neon.webp";
+import imgAir from "@/assets/service-air.webp";
+import imgCctv from "@/assets/service-cctv.webp";
+import imgElectric from "@/assets/service-electric.webp";
+import imgPlumbing from "@/assets/service-plumbing.webp";
 
 const PHONE = "0924367468";
 const LINE_URL = "https://line.me/R/ti/p/~xevilteam";
