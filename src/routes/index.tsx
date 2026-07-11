@@ -525,6 +525,9 @@ function Landing() {
           href={LINE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackContact("line", "float")}
+          data-track="line"
+          data-track-location="float"
           aria-label="แชท LINE"
           className="h-12 w-12 rounded-full bg-card border border-brand/50 text-brand flex items-center justify-center shadow-led"
         >
@@ -532,6 +535,9 @@ function Landing() {
         </a>
         <a
           href={`tel:${PHONE}`}
+          onClick={() => trackContact("phone", "float")}
+          data-track="phone"
+          data-track-location="float"
           aria-label="โทรหาช่าง"
           className="relative h-12 w-12 rounded-full bg-brand-gradient text-brand-foreground flex items-center justify-center btn-neon overflow-hidden isolate"
         >
