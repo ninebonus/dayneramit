@@ -248,6 +248,7 @@ function Landing() {
             <a href="#areas" className="hover:text-foreground transition">พื้นที่</a>
             <a href="#why" className="hover:text-foreground transition">ทำไมเลือกเรา</a>
             <a href="#contact" className="hover:text-foreground transition">ติดต่อ</a>
+            <a href="/documents" className="hover:text-brand transition">ระบบเอกสาร</a>
           </nav>
           <a
             href={`tel:${PHONE}`}

@@ -178,3 +178,15 @@
   }
   .btn-neon-sweep, .btn-neon-sweep-inner { display: none !important; }
 }
+
+/* Document A4 print */
+.doc-page {
+  width: 210mm;
+  min-height: 297mm;
+}
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body { background: white !important; }
+  .print\:hidden { display: none !important; }
+  .doc-page { box-shadow: none !important; margin: 0 !important; }
+}
