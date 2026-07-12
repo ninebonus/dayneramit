@@ -14,16 +14,120 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      document_counters: {
+        Row: {
+          seq: number
+          type: Database["public"]["Enums"]["doc_type"]
+          user_id: string
+          year: number
+        }
+        Insert: {
+          seq?: number
+          type: Database["public"]["Enums"]["doc_type"]
+          user_id: string
+          year: number
+        }
+        Update: {
+          seq?: number
+          type?: Database["public"]["Enums"]["doc_type"]
+          user_id?: string
+          year?: number
+        }
+        Relationships: []
+      }
+      documents: {
+        Row: {
+          created_at: string
+          created_by: string
+          customer: Json
+          discount: number
+          doc_number: string
+          due_date: string | null
+          id: string
+          issue_date: string
+          items: Json
+          note: string | null
+          payment_terms: string | null
+          status: Database["public"]["Enums"]["doc_status"]
+          subtotal: number
+          total: number
+          type: Database["public"]["Enums"]["doc_type"]
+          updated_at: string
+          vat_amount: number
+          vat_enabled: boolean
+          vat_rate: number
+          wht_amount: number
+          wht_enabled: boolean
+          wht_rate: number
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          customer?: Json
+          discount?: number
+          doc_number: string
+          due_date?: string | null
+          id?: string
+          issue_date?: string
+          items?: Json
+          note?: string | null
+          payment_terms?: string | null
+          status?: Database["public"]["Enums"]["doc_status"]
+          subtotal?: number
+          total?: number
+          type: Database["public"]["Enums"]["doc_type"]
+          updated_at?: string
+          vat_amount?: number
+          vat_enabled?: boolean
+          vat_rate?: number
+          wht_amount?: number
+          wht_enabled?: boolean
+          wht_rate?: number
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          customer?: Json
+          discount?: number
+          doc_number?: string
+          due_date?: string | null
+          id?: string
+          issue_date?: string
+          items?: Json
+          note?: string | null
+          payment_terms?: string | null
+          status?: Database["public"]["Enums"]["doc_status"]
+          subtotal?: number
+          total?: number
+          type?: Database["public"]["Enums"]["doc_type"]
+          updated_at?: string
+          vat_amount?: number
+          vat_enabled?: boolean
+          vat_rate?: number
+          wht_amount?: number
+          wht_enabled?: boolean
+          wht_rate?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      next_document_number: {
+        Args: { _type: Database["public"]["Enums"]["doc_type"] }
+        Returns: string
+      }
     }
     Enums: {
-      [_ in never]: never
+      doc_status: "draft" | "sent" | "approved" | "paid" | "cancelled"
+      doc_type:
+        | "quotation"
+        | "invoice"
+        | "receipt"
+        | "tax_invoice"
+        | "billing_note"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +254,15 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      doc_status: ["draft", "sent", "approved", "paid", "cancelled"],
+      doc_type: [
+        "quotation",
+        "invoice",
+        "receipt",
+        "tax_invoice",
+        "billing_note",
+      ],
+    },
   },
 } as const
