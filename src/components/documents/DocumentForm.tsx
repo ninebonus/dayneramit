@@ -15,7 +15,7 @@ import { Trash2, Plus } from "lucide-react";
 
 interface Props {
   defaultValues: DocumentInput;
-  onSubmit: (data: DocumentInput) => void | Promise<void>;
+  onSubmit: (data: DocumentInput) => void | Promise<unknown>;
   submitting?: boolean;
   submitLabel?: string;
 }
@@ -28,8 +28,9 @@ export function DocumentForm({
 }: Props) {
   const { register, control, handleSubmit, watch, setValue } =
     useForm<DocumentInput>({
-      resolver: zodResolver(documentSchema),
-      defaultValues,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      resolver: zodResolver(documentSchema) as any,
+      defaultValues: defaultValues as DocumentInput,
     });
 
   const { fields, append, remove } = useFieldArray({ control, name: "items" });
