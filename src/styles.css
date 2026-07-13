@@ -90,14 +90,14 @@
 @keyframes neon-pulse {
   0%, 100% {
     box-shadow:
-      0 0 0 1px oklch(0.68 0.22 300 / 0.45),
-      0 0 14px oklch(0.68 0.22 300 / 0.25),
+      0 0 0 1px oklch(0.82 0.15 85 / 0.45),
+      0 0 14px oklch(0.82 0.15 85 / 0.25),
       inset 0 1px 0 oklch(1 0 0 / 0.1);
   }
   50% {
     box-shadow:
-      0 0 0 1px oklch(0.72 0.22 305 / 0.7),
-      0 0 20px oklch(0.68 0.22 300 / 0.4),
+      0 0 0 1px oklch(0.88 0.14 90 / 0.7),
+      0 0 20px oklch(0.82 0.15 85 / 0.4),
       inset 0 1px 0 oklch(1 0 0 / 0.14);
   }
 }
@@ -142,8 +142,8 @@
 }
 @utility grid-bg {
   background-image:
-    linear-gradient(oklch(0.68 0.22 300 / 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.68 0.22 300 / 0.05) 1px, transparent 1px);
+    linear-gradient(oklch(0.82 0.15 85 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.82 0.15 85 / 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 @utility btn-neon {
