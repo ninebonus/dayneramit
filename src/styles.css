@@ -39,52 +39,52 @@
   --font-display: "Prompt", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* LED Purple — dark, crisp, professional (reduced glow) */
+/* Luxury Gold — deep obsidian with polished gold accents */
 :root {
   --radius: 1rem;
-  --background: oklch(0.12 0.02 285);
-  --foreground: oklch(0.98 0.005 285);
-  --card: oklch(0.16 0.025 285);
-  --card-foreground: oklch(0.98 0.005 285);
-  --popover: oklch(0.16 0.025 285);
-  --popover-foreground: oklch(0.98 0.005 285);
-  --primary: oklch(0.68 0.22 300);
-  --primary-foreground: oklch(0.99 0.005 285);
-  --secondary: oklch(0.2 0.025 285);
-  --secondary-foreground: oklch(0.98 0.005 285);
-  --muted: oklch(0.2 0.025 285);
-  --muted-foreground: oklch(0.72 0.02 285);
-  --accent: oklch(0.22 0.04 295);
-  --accent-foreground: oklch(0.98 0.005 285);
-  --destructive: oklch(0.7 0.24 25);
+  --background: oklch(0.13 0.012 60);
+  --foreground: oklch(0.97 0.01 85);
+  --card: oklch(0.17 0.015 65);
+  --card-foreground: oklch(0.97 0.01 85);
+  --popover: oklch(0.17 0.015 65);
+  --popover-foreground: oklch(0.97 0.01 85);
+  --primary: oklch(0.82 0.15 85);
+  --primary-foreground: oklch(0.15 0.01 60);
+  --secondary: oklch(0.22 0.018 65);
+  --secondary-foreground: oklch(0.97 0.01 85);
+  --muted: oklch(0.22 0.018 65);
+  --muted-foreground: oklch(0.75 0.02 80);
+  --accent: oklch(0.28 0.05 80);
+  --accent-foreground: oklch(0.97 0.01 85);
+  --destructive: oklch(0.7 0.22 25);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(1 0 0 / 0.08);
-  --input: oklch(1 0 0 / 0.12);
-  --ring: oklch(0.72 0.2 300);
+  --border: oklch(0.82 0.15 85 / 0.15);
+  --input: oklch(0.82 0.15 85 / 0.18);
+  --ring: oklch(0.82 0.15 85);
 
-  --brand: oklch(0.68 0.22 300);
-  --brand-foreground: oklch(0.99 0.005 285);
-  --brand-glow: oklch(0.62 0.2 295);
-  --surface: oklch(0.14 0.025 285);
-  --surface-elevated: oklch(0.18 0.03 285);
+  --brand: oklch(0.82 0.15 85);
+  --brand-foreground: oklch(0.15 0.01 60);
+  --brand-glow: oklch(0.75 0.16 75);
+  --surface: oklch(0.15 0.013 62);
+  --surface-elevated: oklch(0.2 0.018 68);
 
   --gradient-hero:
-    radial-gradient(ellipse 55% 45% at 50% 0%, oklch(0.68 0.22 300 / 0.18), transparent 70%),
-    radial-gradient(ellipse 70% 55% at 50% 100%, oklch(0.55 0.22 290 / 0.12), transparent 70%),
-    linear-gradient(180deg, oklch(0.1 0.02 285) 0%, oklch(0.13 0.025 285) 100%);
-  --gradient-brand: linear-gradient(135deg, oklch(0.62 0.22 295), oklch(0.72 0.22 305));
+    radial-gradient(ellipse 55% 45% at 50% 0%, oklch(0.82 0.15 85 / 0.18), transparent 70%),
+    radial-gradient(ellipse 70% 55% at 50% 100%, oklch(0.65 0.14 70 / 0.12), transparent 70%),
+    linear-gradient(180deg, oklch(0.11 0.01 60) 0%, oklch(0.14 0.013 62) 100%);
+  --gradient-brand: linear-gradient(135deg, oklch(0.7 0.16 75), oklch(0.88 0.14 90));
   --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 0.06), oklch(1 0 0 / 0.02));
   --shadow-soft:
     0 1px 2px oklch(0 0 0 / 0.5),
     0 6px 18px oklch(0 0 0 / 0.35);
   --shadow-elevated:
-    0 10px 34px oklch(0 0 0 / 0.5),
+    0 10px 34px oklch(0 0 0 / 0.55),
     0 2px 6px oklch(0 0 0 / 0.4);
   --shadow-glow:
-    0 0 24px oklch(0.68 0.22 300 / 0.22);
+    0 0 26px oklch(0.82 0.15 85 / 0.25);
   --shadow-led:
-    0 0 0 1px oklch(0.68 0.22 300 / 0.35),
-    inset 0 1px 0 oklch(1 0 0 / 0.06);
+    0 0 0 1px oklch(0.82 0.15 85 / 0.4),
+    inset 0 1px 0 oklch(1 0 0 / 0.08);
 }
 
 @keyframes neon-pulse {
