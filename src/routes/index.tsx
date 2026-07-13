@@ -10,6 +10,7 @@ import imgAir from "@/assets/service-air.webp";
 import imgCctv from "@/assets/service-cctv.webp";
 import imgElectric from "@/assets/service-electric.webp";
 import imgPlumbing from "@/assets/service-plumbing.webp";
+import logoUrl from "@/assets/dayneramit-logo.png";
 
 const PHONE = "0924367468";
 const LINE_URL = "https://line.me/R/ti/p/~xevilteam";
