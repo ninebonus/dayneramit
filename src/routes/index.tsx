@@ -554,16 +554,10 @@ function Landing() {
 
 function Logo({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" className={className} aria-label="Day Neramit logo" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="dn-g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.62 0.22 295)" />
-          <stop offset="100%" stopColor="oklch(0.75 0.22 305)" />
-        </linearGradient>
-      </defs>
-      <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#dn-g)" />
-      <path d="M13 12h6.5a8 8 0 0 1 0 16H13V12z" fill="#0a1420" opacity="0.9" />
-      <circle cx="19.5" cy="20" r="3.4" fill="url(#dn-g)" />
-    </svg>
+    <img
+      src={logoUrl}
+      alt="Day Neramit logo"
+      className={`${className} object-contain rounded-md`}
+    />
   );
 }
