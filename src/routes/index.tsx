@@ -13,7 +13,7 @@ import imgPlumbing from "@/assets/service-plumbing.webp";
 import logoUrl from "@/assets/dayneramit-logo.png";
 
 const PHONE = "0924367468";
-const LINE_URL = "https://line.me/R/ti/p/~110becxh";
+const LINE_URL = "https://line.me/R/ti/p/~@110becxh";
 const SITE = "https://dayneramit.lovable.app";
 const SITE_TITLE = "Day Neramit ช่างนนทบุรี บางใหญ่ บางบัวทอง — ติดตั้ง/ซ่อม/ล้างแอร์ CCTV ไฟฟ้า ประปา";
 const SITE_DESC =
