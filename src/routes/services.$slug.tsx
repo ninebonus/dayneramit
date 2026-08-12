@@ -8,7 +8,7 @@ import {
 import { services, serviceBySlug, type Service, type ServiceIconKey } from "@/data/services";
 
 const PHONE = "0924367468";
-const LINE_URL = "https://line.me/R/ti/p/~xevilteam";
+const LINE_URL = "https://line.me/R/ti/p/~110becxh";
 const SITE = "https://dayneramit.lovable.app";
 
 const iconMap: Record<ServiceIconKey, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
